@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beaches Turks & Caicos | If You Can Dream It Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sand: #f5efe6;
+  --ocean: #1a6b8a;
+  --deep: #0d3d52;
+  --turq: #4ecdc4;
+  --gold: #c9a96e;
+  --coral: #e8896a;
+  --white: #ffffff;
+  --text: #2c2c2c;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--sand);color:var(--text);overflow-x:hidden}
+
+/* ── HERO ── */
+.hero{position:relative;height:100vh;min-height:650px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,40,55,.55) 0%,rgba(10,40,55,.15) 40%,rgba(10,40,55,.72) 100%),url('https://i.imgur.com/EsM5MXO.png') center/cover no-repeat;animation:slowZoom 22s ease-in-out infinite alternate}
+@keyframes slowZoom{from{transform:scale(1)}to{transform:scale(1.06)}}
+.hero-badge{position:relative;font-size:.68rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--turq);background:rgba(255,255,255,.1);border:1px solid rgba(78,205,196,.4);padding:6px 18px;border-radius:50px;margin-bottom:1.5rem;backdrop-filter:blur(6px);animation:fadeUp 1s ease .2s both}
+.hero h1{position:relative;font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,8vw,6.5rem);font-weight:300;color:var(--white);line-height:1.05;animation:fadeUp 1s ease .4s both}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{position:relative;font-size:1rem;font-weight:300;color:rgba(255,255,255,.85);letter-spacing:.08em;margin-top:1rem;animation:fadeUp 1s ease .6s both}
+.hero-cta{position:relative;margin-top:2.5rem;animation:fadeUp 1s ease .8s both}
+.btn-gold{display:inline-block;background:var(--gold);color:var(--deep);font-family:'Jost',sans-serif;font-size:.8rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:16px 42px;border-radius:2px;border:none;cursor:pointer;transition:background .3s,transform .2s}
+.btn-gold:hover{background:#b8913e;transform:translateY(-2px)}
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.45);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;animation:sbounce 2s ease infinite}
+.scroll-hint span{width:1px;height:36px;background:rgba(255,255,255,.3)}
+@keyframes sbounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── INTRO ── */
+.intro{background:var(--deep);color:var(--white);text-align:center;padding:4rem 2rem}
+.intro p{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,3vw,1.9rem);font-weight:300;font-style:italic;max-width:760px;margin:0 auto;line-height:1.65;opacity:.92}
+.intro .agent{margin-top:1.2rem;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+
+/* ── PHOTO GRID ── */
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:320px 220px;gap:4px;padding:4px}
+.iw{overflow:hidden;position:relative}
+.iw:first-child{grid-column:1/3;grid-row:1}
+.iw img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.iw:hover img{transform:scale(1.05)}
+.iw .lbl{position:absolute;bottom:12px;left:14px;background:rgba(13,61,82,.82);color:var(--white);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;padding:4px 10px;border-radius:2px;backdrop-filter:blur(4px)}
+
+/* ── SHARED ── */
+.sec-eyebrow{text-align:center;font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ocean);margin-bottom:.6rem}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:400;text-align:center;color:var(--deep);margin-bottom:2.5rem;line-height:1.2}
+
+/* ── FEATURES ── */
+.features{background:var(--white);padding:5rem 2rem}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;max-width:1000px;margin:0 auto}
+.feat-card{text-align:center;padding:2rem 1.5rem;border:1px solid rgba(26,107,138,.12);border-radius:4px;transition:box-shadow .3s,transform .3s}
+.feat-card:hover{box-shadow:0 12px 40px rgba(26,107,138,.12);transform:translateY(-4px)}
+.feat-icon{font-size:2rem;margin-bottom:1rem}
+.feat-card h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--deep);margin-bottom:.5rem}
+.feat-card p{font-size:.85rem;line-height:1.65;color:#666;font-weight:300}
+
+/* ── TIER EXPLAINER ── */
+.tiers-explainer{background:var(--deep);padding:5rem 2rem}
+.tiers-explainer .sec-eyebrow{color:var(--turq)}
+.tiers-explainer .sec-title{color:var(--white)}
+.tiers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;max-width:1050px;margin:0 auto}
+.tier-exp-card{border-radius:8px;padding:2rem;position:relative;overflow:hidden;transition:transform .3s}
+.tier-exp-card:hover{transform:translateY(-4px)}
+.tier-exp-card.entry{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.tier-exp-card.smart{background:rgba(201,169,110,.12);border:2px solid var(--gold);box-shadow:0 0 40px rgba(201,169,110,.15)}
+.tier-exp-card.luxury{background:rgba(78,205,196,.07);border:1px solid rgba(78,205,196,.25)}
+.tier-badge{display:inline-block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;padding:4px 12px;border-radius:50px;margin-bottom:.8rem;font-weight:500}
+.entry .tier-badge{background:rgba(255,255,255,.1);color:rgba(255,255,255,.6)}
+.smart .tier-badge{background:var(--gold);color:var(--deep)}
+.luxury .tier-badge{background:rgba(78,205,196,.2);color:var(--turq);border:1px solid rgba(78,205,196,.3)}
+.tier-exp-name{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:600;color:var(--white);margin-bottom:.3rem}
+.smart .tier-exp-name{color:var(--gold)}
+.tier-exp-tagline{font-size:.78rem;color:rgba(255,255,255,.5);margin-bottom:1.2rem;font-style:italic}
+.smart .tier-exp-tagline{color:rgba(201,169,110,.7)}
+.tier-exp-perks{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.tier-exp-perks li{font-size:.82rem;color:rgba(255,255,255,.7);display:flex;gap:9px;align-items:flex-start;line-height:1.5}
+.tier-exp-perks li::before{content:'✦';color:var(--gold);font-size:.58rem;margin-top:3px;flex-shrink:0}
+.smart .tier-exp-perks li{color:rgba(255,255,255,.85)}
+.smart-glow{position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,.12) 0%,transparent 70%);pointer-events:none}
+
+/* ── VILLAGES ── */
+.villages{background:var(--sand);padding:5rem 2rem}
+.villages-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.2rem;max-width:1100px;margin:0 auto}
+.vil-card{background:var(--white);border-radius:6px;padding:1.6rem;border-left:4px solid var(--ocean);box-shadow:0 2px 16px rgba(0,0,0,.05);transition:transform .3s,box-shadow .3s}
+.vil-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.1)}
+.vil-card:nth-child(2){border-left-color:var(--turq)}
+.vil-card:nth-child(3){border-left-color:var(--gold)}
+.vil-card:nth-child(4){border-left-color:var(--coral)}
+.vil-card:nth-child(5){border-left-color:#7eb8c9}
+.vil-card:nth-child(6){border-left-color:#9b8ec4}
+.vil-top{display:flex;align-items:center;gap:10px;margin-bottom:.4rem}
+.vil-icon{font-size:1.4rem}
+.vil-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--deep)}
+.vil-tag{display:inline-block;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(26,107,138,.1);color:var(--ocean);padding:2px 8px;border-radius:50px;margin-bottom:.5rem}
+.vil-desc{font-size:.82rem;line-height:1.65;color:#666;font-weight:300}
+
+/* ── TRIPS ── */
+.trips{background:var(--white);padding:5rem 2rem}
+.live-bar{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:.8rem}
+.live-dot{width:8px;height:8px;background:var(--coral);border-radius:50%;animation:pulse 1.5s ease infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+.live-text{font-size:.75rem;color:var(--coral);letter-spacing:.06em}
+.trips-note{text-align:center;font-size:.78rem;color:#999;font-style:italic;margin-bottom:2.5rem;max-width:620px;margin-left:auto;margin-right:auto}
+.trips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem;max-width:1300px;margin:0 auto}
+
+/* trip card base */
+.trip-card{background:var(--sand);border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.07);transition:transform .3s,box-shadow .3s,border-color .3s;display:flex;flex-direction:column;cursor:pointer;border:2px solid transparent;position:relative}
+.trip-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(0,0,0,.15)}
+.trip-card.selected{border-color:var(--gold);box-shadow:0 0 0 4px rgba(201,169,110,.18),0 14px 40px rgba(0,0,0,.15);transform:translateY(-5px)}
+.trip-card.last-min.selected{border-color:var(--turq);box-shadow:0 0 0 4px rgba(78,205,196,.2),0 14px 40px rgba(0,0,0,.2)}
+.select-cta{display:block;text-align:center;padding:.9rem;font-size:.72rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ocean);background:rgba(26,107,138,.07);border-top:1px solid rgba(26,107,138,.1);transition:background .25s,color .25s}
+.trip-card:hover .select-cta{background:rgba(26,107,138,.12);color:var(--deep)}
+.trip-card.selected .select-cta{background:var(--gold);color:var(--deep)}
+.trip-card.last-min .select-cta{background:rgba(78,205,196,.1);color:var(--turq);border-top-color:rgba(78,205,196,.15)}
+.trip-card.last-min.selected .select-cta{background:var(--turq);color:var(--deep)}
+
+/* selected date banner */
+#selected-banner{display:none;max-width:700px;margin:0 auto 2rem;background:linear-gradient(135deg,rgba(201,169,110,.18),rgba(26,107,138,.12));border:1px solid var(--gold);border-radius:8px;padding:1.1rem 1.6rem;text-align:center;animation:bannerIn .4s ease both}
+@keyframes bannerIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+#selected-banner .ban-eyebrow{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ocean);margin-bottom:.3rem}
+#selected-banner .ban-dates{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--deep)}
+#selected-banner .ban-hint{font-size:.75rem;color:#888;margin-top:.3rem}
+
+/* flight question */
+#flights-wrap{margin-bottom:1.2rem}
+.yn-opts{display:flex;gap:.8rem;margin-top:.5rem}
+.yn-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:4px;color:rgba(255,255,255,.68);cursor:pointer;font-family:'Jost',sans-serif;font-size:.85rem;padding:12px;transition:all .25s}
+.yn-btn:hover,.yn-btn.sel{background:rgba(78,205,196,.12);border-color:var(--turq);color:var(--white)}
+.yn-btn input[type=radio]{display:none}
+#airport-wrap{display:none;margin-top:.8rem;animation:bannerIn .3s ease both}
+.trip-head{padding:1.4rem 1.6rem 1rem;border-bottom:1px solid rgba(0,0,0,.07)}
+.trip-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ocean);margin-bottom:.3rem}
+.trip-dates{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--deep)}
+.urgency-pill{display:inline-flex;align-items:center;gap:5px;margin-top:.4rem;background:rgba(232,137,106,.12);color:var(--coral);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:50px;border:1px solid rgba(232,137,106,.3)}
+.trip-tiers-list{padding:1.2rem 1.4rem 1.4rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
+
+/* tier rows */
+.t-row{display:flex;justify-content:space-between;align-items:center;padding:.65rem 1rem;border-radius:5px;border:1px solid transparent;transition:all .2s}
+.t-row.entry{background:rgba(255,255,255,.7);border-color:rgba(0,0,0,.05)}
+.t-row.smart{background:var(--deep);border-color:var(--gold);box-shadow:0 4px 16px rgba(13,61,82,.2);position:relative;overflow:hidden}
+.t-row.smart::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,.08) 0%,transparent 60%);pointer-events:none}
+.t-row.luxury{background:rgba(13,61,82,.06);border-color:rgba(13,61,82,.12)}
+.t-name{font-size:.75rem;font-weight:500}
+.t-row.entry .t-name{color:#555}
+.t-row.smart .t-name{color:var(--white)}
+.t-row.luxury .t-name{color:var(--deep)}
+.t-badge-inline{display:inline-block;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;background:var(--gold);color:var(--deep);padding:2px 7px;border-radius:50px;margin-left:6px;vertical-align:middle;font-weight:500}
+.t-price-wrap{text-align:right}
+.t-price{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600}
+.t-row.entry .t-price{color:var(--ocean)}
+.t-row.smart .t-price{color:var(--gold)}
+.t-row.luxury .t-price{color:var(--deep)}
+.t-unit{font-size:.6rem;color:#aaa;display:block}
+.t-row.smart .t-unit{color:rgba(255,255,255,.4)}
+.t-sub{font-size:.62rem;color:rgba(255,255,255,.45);margin-top:1px}
+
+/* last minute card */
+.trip-card.last-min{background:linear-gradient(150deg,#081e2a,#0d3d52)}
+.trip-card.last-min .trip-head{border-bottom-color:rgba(255,255,255,.1)}
+.trip-card.last-min .trip-label{color:var(--turq)}
+.trip-card.last-min .trip-dates{color:var(--white)}
+.lm-promo{display:inline-block;margin-top:.5rem;background:rgba(201,169,110,.2);color:var(--gold);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:50px;border:1px solid rgba(201,169,110,.35)}
+.lm-room-block{margin:1.4rem 1.6rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:1.4rem;text-align:center}
+.lm-room-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--white);margin-bottom:.3rem;line-height:1.3}
+.lm-room-sub{font-size:.72rem;color:rgba(255,255,255,.45);margin-bottom:.9rem}
+.lm-price{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:400;color:var(--gold);line-height:1}
+.lm-price-note{font-size:.7rem;color:rgba(255,255,255,.4);margin-top:.3rem}
+
+/* ── BUTLER CALLOUT ── */
+.butler-callout{max-width:860px;margin:2.5rem auto 0;background:var(--deep);border-radius:10px;padding:2.5rem;color:var(--white);border:1px solid rgba(78,205,196,.15)}
+.butler-callout .eyebrow{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--turq);margin-bottom:.5rem}
+.butler-callout h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;margin-bottom:1.4rem;line-height:1.4;opacity:.92}
+.butler-perks{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.8rem}
+.butler-perk{display:flex;gap:10px;align-items:flex-start;font-size:.82rem;color:rgba(255,255,255,.72);line-height:1.55}
+.butler-perk span{color:var(--gold);flex-shrink:0;margin-top:1px}
+
+/* ── PROMOS ── */
+.promos{background:var(--sand);padding:5rem 2rem}
+.promos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;max-width:1100px;margin:0 auto}
+.promo-card{background:var(--white);border-radius:8px;padding:1.8rem;box-shadow:0 4px 20px rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s;border-top:3px solid var(--ocean)}
+.promo-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.1)}
+.promo-card:nth-child(2){border-top-color:var(--gold)}
+.promo-card:nth-child(3){border-top-color:var(--turq)}
+.promo-card:nth-child(4){border-top-color:var(--coral)}
+.promo-icon{font-size:2rem;margin-bottom:.8rem}
+.promo-card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--deep);margin-bottom:.5rem}
+.promo-card p{font-size:.82rem;color:#666;line-height:1.65;font-weight:300}
+.promo-pill{display:inline-block;margin-top:.8rem;background:rgba(26,107,138,.1);color:var(--ocean);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:50px}
+
+/* ── 7-7-7 ── */
+.deals{background:var(--deep);padding:5rem 2rem;position:relative;overflow:hidden}
+.deals::before{content:'7·7·7';position:absolute;right:-1rem;top:50%;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-size:16rem;font-weight:300;color:rgba(255,255,255,.03);line-height:1;pointer-events:none;letter-spacing:-.05em}
+.deals .sec-eyebrow{color:var(--turq)}
+.deals .sec-title{color:var(--white)}
+.deals-explainer{text-align:center;font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.75;font-weight:300;max-width:640px;margin:0 auto 2.5rem}
+.deals-explainer strong{color:var(--gold);font-weight:500}
+.deals-explainer .hot{color:var(--coral);font-weight:500}
+.deals-box{max-width:900px;margin:0 auto;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px;overflow:hidden}
+.deals-box-head{background:rgba(255,255,255,.06);padding:1rem 1.6rem;display:flex;align-items:center;gap:10px}
+.deals-box-head .dot{width:8px;height:8px;background:var(--gold);border-radius:50%;animation:pulse 2s ease infinite}
+.deals-box-head span{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.deals-slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));padding:1.4rem;gap:1rem}
+.deal-slot{background:rgba(255,255,255,.04);border:1px dashed rgba(255,255,255,.15);border-radius:6px;padding:1.2rem;text-align:center}
+.deal-slot.active{border-style:solid;border-color:rgba(201,169,110,.35);background:rgba(201,169,110,.07)}
+.slot-num{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.4rem}
+.slot-body{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:rgba(255,255,255,.35);font-style:italic}
+.deal-slot.active .slot-body{color:var(--white);font-style:normal;font-size:1.1rem}
+.slot-price{margin-top:.3rem;font-size:.75rem;color:var(--gold)}
+.deals-footer{padding:1rem 1.6rem;border-top:1px solid rgba(255,255,255,.08);text-align:center;font-size:.75rem;color:rgba(255,255,255,.35);font-style:italic}
+
+/* ── FORM ── */
+.form-section{background:linear-gradient(160deg,#060f14 0%,#0d3d52 55%,#060f14 100%);padding:6rem 2rem;position:relative;overflow:hidden}
+.form-section::before{content:'';position:absolute;top:-80px;right:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(78,205,196,.07) 0%,transparent 70%);pointer-events:none}
+.form-section .sec-eyebrow{color:var(--turq)}
+.form-section .sec-title{color:var(--white)}
+.form-sub{text-align:center;color:rgba(255,255,255,.5);font-size:.88rem;margin-bottom:3rem;font-weight:300}
+.form-wrap{max-width:700px;margin:0 auto;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:3rem;backdrop-filter:blur(8px)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem}
+.fg{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.2rem}
+.fg label,.flabel{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.42)}
+.fg input,.fg select,.fg textarea{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:3px;color:var(--white);font-family:'Jost',sans-serif;font-size:.88rem;padding:12px 14px;outline:none;transition:border-color .3s;width:100%}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.22)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--turq)}
+.fg select option{background:#0d3d52;color:var(--white)}
+.flabel{display:block;margin-bottom:.7rem}
+#ages-wrap{margin-bottom:1.2rem;display:none}
+.ages-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:.8rem;margin-top:.5rem}
+.age-item label{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.38);display:block;margin-bottom:.3rem}
+.age-item input{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:3px;color:var(--white);font-family:'Jost',sans-serif;font-size:.88rem;padding:10px 12px;outline:none;width:100%;transition:border-color .3s}
+.age-item input:focus{border-color:var(--turq)}
+
+/* radio buttons */
+.radio-group{margin-bottom:1.4rem}
+.radio-opts{display:flex;flex-direction:column;gap:.6rem}
+.rbtn{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:4px;color:rgba(255,255,255,.68);cursor:pointer;font-family:'Jost',sans-serif;font-size:.82rem;padding:12px 16px;text-align:left;transition:all .25s;width:100%}
+.rbtn .ico{font-size:1.1rem;flex-shrink:0}
+.rbtn:hover,.rbtn.sel{background:rgba(78,205,196,.12);border-color:var(--turq);color:var(--white)}
+.rbtn input[type=radio]{display:none}
+.contact-opts{display:flex;gap:.8rem;flex-wrap:wrap}
+.cbtn{flex:1;min-width:110px;display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:4px;color:rgba(255,255,255,.68);cursor:pointer;font-family:'Jost',sans-serif;font-size:.8rem;padding:12px;transition:all .25s}
+.cbtn:hover,.cbtn.sel{background:rgba(78,205,196,.12);border-color:var(--turq);color:var(--white)}
+.cbtn input[type=radio]{display:none}
+
+/* checkboxes */
+.cb-row{background:rgba(201,169,110,.08);border:1px solid rgba(201,169,110,.22);border-radius:4px;padding:1.1rem 1.3rem;margin-bottom:1.2rem;display:flex;align-items:flex-start;gap:12px;cursor:pointer}
+.cb-row input[type=checkbox]{margin-top:3px;accent-color:var(--gold);width:15px;height:15px;flex-shrink:0;cursor:pointer}
+.cb-row .cbt{font-size:.82rem;color:rgba(255,255,255,.68);line-height:1.6}
+.cb-row .cbt strong{color:var(--gold);font-weight:500}
+
+.submit-btn{width:100%;background:var(--gold);color:var(--deep);font-family:'Jost',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:17px;border:none;border-radius:3px;cursor:pointer;margin-top:.8rem;transition:background .3s,transform .2s}
+.submit-btn:hover{background:#b8913e;transform:translateY(-2px)}
+.form-privacy{text-align:center;font-size:.7rem;color:rgba(255,255,255,.22);margin-top:1rem}
+
+#success-msg{display:none;text-align:center;padding:2.5rem;color:var(--white)}
+#success-msg .chk{font-size:3rem;color:var(--turq)}
+#success-msg h3{font-family:'Cormorant Garamond',serif;font-size:2rem;margin:.8rem 0 .5rem}
+#success-msg p{color:rgba(255,255,255,.6);font-size:.9rem;line-height:1.7}
+
+/* ── FOOTER ── */
+footer{background:#030a0e;color:rgba(255,255,255,.35);text-align:center;padding:2.5rem;font-size:.75rem;line-height:2}
+footer a{color:var(--gold);text-decoration:none}
+footer .brand{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:rgba(255,255,255,.65)}
+
+@media(max-width:640px){
+  .photo-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .iw:first-child{grid-column:1/3;height:220px}
+  .iw{height:150px}
+  .frow{grid-template-columns:1fr}
+  .form-wrap{padding:2rem 1.4rem}
+  .contact-opts{flex-direction:column}
+  .trips-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-badge">Exclusively Curated by Megan Tykol, Travel Agent · If You Can Dream It Travel Agency</div>
+  <div style="position:relative;animation:fadeUp 1s ease .15s both;display:flex;gap:1rem;margin-bottom:.5rem;flex-wrap:wrap;justify-content:center">
+    <a href="https://www.facebook.com/Megantykolwithifyoucandreamittravel" target="_blank" style="color:rgba(255,255,255,.6);font-size:.7rem;text-decoration:none;letter-spacing:.06em;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">f Facebook</a>
+    <span style="color:rgba(255,255,255,.25);font-size:.7rem">·</span>
+    <a href="https://www.instagram.com/megantykol_ifyoucandreamit" target="_blank" style="color:rgba(255,255,255,.6);font-size:.7rem;text-decoration:none;letter-spacing:.06em;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">◎ Instagram</a>
+    <span style="color:rgba(255,255,255,.25);font-size:.7rem">·</span>
+    <a href="https://www.tiktok.com/@megantykol_ifyoucandream" target="_blank" style="color:rgba(255,255,255,.6);font-size:.7rem;text-decoration:none;letter-spacing:.06em;transition:color .2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">♪ TikTok</a>
+  </div>
+  <h1>Beaches<br><em>Turks & Caicos</em></h1>
+  <p class="hero-sub">All-Inclusive Luxury · Family &amp; Multi-Generational · Summer 2025</p>
+  <div class="hero-cta"><a href="#quote" class="btn-gold">Request My Custom Quote</a></div>
+  <div style="position:relative;margin-top:1.2rem;animation:fadeUp 1s ease 1s both;text-align:center;padding:0 1rem">
+    <span style="font-size:.72rem;color:rgba(255,255,255,.6);letter-spacing:.05em">🔒 Lock in your rate with a <strong style="color:var(--gold)">$400 fully refundable deposit</strong> &nbsp;·&nbsp; Cancel free 45+ days before check-in</span>
+  </div>
+  <div class="scroll-hint">Discover More<span></span></div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <p>"Where every generation — from toddlers to grandparents — finds their perfect vacation on the world's most spectacular beach."</p>
+  <div class="agent">— Megan Tykol &nbsp;·&nbsp; If You Can Dream It Travel</div>
+</section>
+
+<!-- PHOTO GRID -->
+<section class="photo-grid">
+  <div class="iw"><img src="https://i.imgur.com/IOxQs1d.png" alt="Grace Bay"><span class="lbl">Beaches TCI · Aerial View</span></div>
+  <div class="iw"><img src="https://i.imgur.com/EsM5MXO.png" alt="Pool"><span class="lbl">The Beaches Pool · Italian Village</span></div>
+  <div class="iw"><img src="https://i.imgur.com/HAdEwZy.png" alt="Family"><span class="lbl">Beachfront &amp; Pool</span></div>
+  <div class="iw"><img src="https://i.imgur.com/YPglzUP.png" alt="Dining"><span class="lbl">The Waterpark</span></div>
+  <div class="iw"><img src="https://i.imgur.com/LEsXmxy.png" alt="Ocean"><span class="lbl">Luxury Oceanview Suite</span></div>
+</section>
+
+<!-- FEATURES -->
+<section class="features reveal">
+  <p class="sec-eyebrow">Why Beaches Turks &amp; Caicos</p>
+  <h2 class="sec-title">Everything. Included. For Everyone.</h2>
+  <div class="feat-grid">
+    <div class="feat-card"><div class="feat-icon">🏖️</div><h3>World's Best Beach</h3><p>Grace Bay has been voted the #1 beach on earth — powder-white sand and crystal-clear turquoise water as far as the eye can see.</p></div>
+    <div class="feat-card"><div class="feat-icon">👨‍👩‍👧‍👦</div><h3>Multi-Generational</h3><p>Toddlers to grandparents, everyone thrives here. Large group suites, connecting rooms, and activities built for every age.</p></div>
+    <div class="feat-card"><div class="feat-icon">🍽️</div><h3>21 Restaurants</h3><p>Gourmet dining across world cuisines — all included. No reservations, no bill, no stress. Just show up and enjoy.</p></div>
+    <div class="feat-card"><div class="feat-icon">🌊</div><h3>Waterpark & Scuba</h3><p>Built-in water slides, snorkeling, paddleboards, and PADI scuba certification — all at no extra cost.</p></div>
+    <div class="feat-card"><div class="feat-icon">🎭</div><h3>Sesame Street & More</h3><p>Character breakfasts, kids' clubs, teen lounges, nightly live entertainment — every family member is always having fun.</p></div>
+    <div class="feat-card"><div class="feat-icon">💼</div><h3>Every Budget Welcome</h3><p>From beautifully appointed suites to private butler villas — there's a perfect fit for every family and every budget.</p></div>
+  </div>
+</section>
+
+<!-- TIER EXPLAINER -->
+<section class="tiers-explainer reveal">
+  <p class="sec-eyebrow">Room Categories Explained</p>
+  <h2 class="sec-title">Which Level Is Right for You?</h2>
+  <div class="tiers-grid">
+
+    <div class="tier-exp-card entry">
+      <span class="tier-badge">Entry Level</span>
+      <div class="tier-exp-name">Sandals Luxury</div>
+      <div class="tier-exp-tagline">A beautiful start to your Beaches experience</div>
+      <div style="margin:.8rem -2rem 1rem;overflow:hidden;height:160px"><img src="https://i.imgur.com/t6KKr7g.png" style="width:100%;height:100%;object-fit:cover;object-position:center" alt="Room"></div>
+      <ul class="tier-exp-perks">
+        <li>Beautifully appointed rooms &amp; suites</li>
+        <li>Full all-inclusive dining &amp; unlimited drinks</li>
+        <li>Complete access to all resort amenities</li>
+        <li>Waterpark, beach, scuba &amp; water sports</li>
+        <li>Kids' clubs &amp; Sesame Street experiences</li>
+      </ul>
+    </div>
+
+    <div class="tier-exp-card smart">
+      <div class="smart-glow"></div>
+      <span class="tier-badge">🏆 Megan's Pick</span>
+      <div class="tier-exp-name">Club Sandals / Concierge</div>
+      <div class="tier-exp-tagline">The smart choice — most value at the best price point</div>
+      <ul class="tier-exp-perks">
+        <li>Everything in Sandals Luxury, plus...</li>
+        <li>Access to the exclusive Concierge Lounge</li>
+        <li>Concierge team handles hard-to-get restaurant reservations for you — no waiting, no stress</li>
+        <li>Beer, liquor &amp; water stocked in your room</li>
+        <li>Upgraded, more spacious rooms &amp; suites</li>
+        <li>Preferred check-in &amp; dedicated service</li>
+        <li>Family suites available — ideal for groups</li>
+      </ul>
+    </div>
+
+    <div class="tier-exp-card luxury">
+      <span class="tier-badge">✦ Luxury Pick</span>
+      <div class="tier-exp-name">Butler Villa &amp; Suites</div>
+      <div class="tier-exp-tagline">The ultimate splurge — for those who want it all</div>
+      <div style="margin:.8rem -2rem 1rem;overflow:hidden;height:160px"><img src="https://i.imgur.com/TOa5dKM.png" style="width:100%;height:100%;object-fit:cover;object-position:center top" alt="Waterpark"></div>
+      <ul class="tier-exp-perks">
+        <li>Everything in Club Sandals, plus...</li>
+        <li>Your own dedicated 24/7 personal butler</li>
+        <li>Private phone to reach your butler anytime</li>
+        <li>Private airport transportation included</li>
+        <li>Reserved beach &amp; pool chairs — always ready</li>
+        <li>Custom drink preference list pre-stocked</li>
+        <li>Premium beachfront suite locations</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- VILLAGES -->
+<section class="villages reveal">
+  <p class="sec-eyebrow">Insider Knowledge</p>
+  <h2 class="sec-title">Choose Your Village</h2>
+  <div class="villages-grid">
+    <div class="vil-card"><div class="vil-top"><span class="vil-icon">🎢</span><span class="vil-name">French Village</span></div><span class="vil-tag">Best for Families with Kids</span><p class="vil-desc">Located furthest out on the resort but right next to the waterpark — making it the ultimate spot for families who plan to spend their days on the slides. A little extra walk, worth every step.</p></div>
+    <div class="vil-card"><div class="vil-top"><span class="vil-icon">🌺</span><span class="vil-name">Caribbean Village</span></div><span class="vil-tag">Central & Classic</span><p class="vil-desc">The original heart of the resort — older in style but full of character, and ideally located close to everything: restaurants, pools, beach, and nightly entertainment.</p></div>
+    <div class="vil-card"><div class="vil-top"><span class="vil-icon">🔑</span><span class="vil-name">Key West Village</span></div><span class="vil-tag">Updated & Quiet</span><p class="vil-desc">Recently refreshed rooms with a relaxed, peaceful vibe — yet still close to everything the resort has to offer. Perfect for families who want modern amenities without the noise.</p></div>
+    <div class="vil-card"><div class="vil-top"><span class="vil-icon">🎉</span><span class="vil-name">Italian Village</span></div><span class="vil-tag">Most Lively · Party Pool</span><p class="vil-desc">Home to the famous party pool and the most action on the resort. Lively, social, always something happening. Note: it's the loudest village — light sleepers take note!</p></div>
+    <div class="vil-card"><div class="vil-top"><span class="vil-icon">🌊</span><span class="vil-name">Seaside Village</span></div><span class="vil-tag">Closest to the Ocean</span><p class="vil-desc">Beautiful suites just steps from the water. Wake up, walk out, and you're on Grace Bay. Ideal for those who want that true oceanside experience every single day.</p></div>
+    <div class="vil-card"><div class="vil-top"><span class="vil-icon">✨</span><span class="vil-name">Treasure Beach</span></div><span class="vil-tag">Newest · Most Updated</span><p class="vil-desc">The newest and most beautifully updated building on the resort. On the edge of the property but still easy access to everything — with the freshest interiors and a serene, modern feel.</p></div>
+  </div>
+</section>
+
+<!-- TRIPS -->
+<section class="trips reveal">
+  <p class="sec-eyebrow">Available Travel Dates · Summer 2025</p>
+  <h2 class="sec-title">Find Your Perfect Week</h2>
+  <div class="live-bar"><span class="live-dot"></span><span class="live-text">Pricing is live &amp; changes daily — locking in with a deposit protects your rate</span></div>
+  <p class="trips-note">Sample pricing based on a family of 4 (2 adults + 2 children) · per person, per night · all-inclusive · flights not included. Your personalized quote reflects your exact group size &amp; current promotions.</p>
+
+  <div style="text-align:center;margin-bottom:2.5rem">
+    <div style="display:inline-flex;align-items:center;gap:1.2rem;flex-wrap:wrap;justify-content:center;background:linear-gradient(135deg,rgba(201,169,110,.12),rgba(26,107,138,.08));border:1px solid rgba(201,169,110,.35);border-radius:8px;padding:1rem 2rem">
+      <div style="display:flex;align-items:center;gap:8px"><span style="font-size:1.2rem">🔒</span><div style="text-align:left"><div style="font-size:.82rem;font-weight:500;color:var(--deep)">Lock in your rate — only a <strong style="color:var(--ocean)">$400 deposit</strong> required</div><div style="font-size:.72rem;color:#888;margin-top:1px">Fully refundable if you cancel 45 or more days before check-in · No risk, no stress</div></div></div>
+    </div>
+  </div>
+
+  <div class="trips-grid">
+
+    <!-- Trip 1 -->
+    <div class="trip-card" data-dates="April 26 – May 1, 2025" onclick="selectTrip(this)">
+      <div class="trip-head"><p class="trip-label">Spring Escape</p><p class="trip-dates">April 26 – May 1, 2025</p></div>
+      <div class="trip-tiers-list">
+        <div class="t-row entry"><span class="t-name">Sandals Luxury</span><div class="t-price-wrap"><strong class="t-price">$371</strong><span class="t-unit">pp / pn</span></div></div>
+        <div class="t-row smart"><div><span class="t-name">Club Sandals<span class="t-badge-inline">Megan's Pick</span></span><div class="t-sub">Concierge lounge · drinks in room</div></div><div class="t-price-wrap"><strong class="t-price">$472–$538</strong><span class="t-unit">pp / pn</span></div></div>
+        <div class="t-row luxury"><span class="t-name">Butler Villa</span><div class="t-price-wrap"><strong class="t-price">$1,034</strong><span class="t-unit">pp / pn</span></div></div>
+      </div>
+      <span class="select-cta">✦ Select These Dates &amp; Request Quote</span>
+    </div>
+
+    <!-- Trip 2 -->
+    <div class="trip-card" data-dates="May 3 – May 8, 2025" onclick="selectTrip(this)">
+      <div class="trip-head"><p class="trip-label">Early May Value</p><p class="trip-dates">May 3 – May 8, 2025</p></div>
+      <div class="trip-tiers-list">
+        <div class="t-row entry"><span class="t-name">Sandals Luxury</span><div class="t-price-wrap"><strong class="t-price">$321</strong><span class="t-unit">pp / pn</span></div></div>
+        <div class="t-row smart"><div><span class="t-name">Club Sandals<span class="t-badge-inline">Megan's Pick</span></span><div class="t-sub">Concierge lounge · drinks in room</div></div><div class="t-price-wrap"><strong class="t-price">$401</strong><span class="t-unit">pp / pn</span></div></div>
+        <div class="t-row luxury"><span class="t-name">Butler Villa</span><div class="t-price-wrap"><strong class="t-price">$829</strong><span class="t-unit">pp / pn</span></div></div>
+      </div>
+      <span class="select-cta">✦ Select These Dates &amp; Request Quote</span>
+    </div>
+
+    <!-- Trip 3 -->
+    <div class="trip-card" data-dates="June 14 – 19, 2025" onclick="selectTrip(this)">
+      <div class="trip-head"><p class="trip-label">Summer Getaway</p><p class="trip-dates">June 14 – 19, 2025</p><span class="urgency-pill">⚠️ Limited Availability</span></div>
+      <div class="trip-tiers-list">
+        <div class="t-row entry"><div><span class="t-name">Sandals Luxury</span><div style="font-size:.65rem;color:var(--coral);margin-top:2px">⚠️ Only 2 rooms left</div></div><div class="t-price-wrap"><strong class="t-price">$447</strong><span class="t-unit">pp / pn</span></div></div>
+        <div class="t-row smart"><div><span class="t-name">Club Sandals<span class="t-badge-inline">Megan's Pick</span></span><div class="t-sub">1BR + Living Room · Concierge lounge</div></div><div class="t-price-wrap"><strong class="t-price">$651</strong><span class="t-unit">pp / pn</span></div></div>
+        <div class="t-row luxury"><span class="t-name">Butler Villa</span><div class="t-price-wrap"><strong class="t-price">$1,291</strong><span class="t-unit">pp / pn</span></div></div>
+      </div>
+      <span class="select-cta">✦ Select These Dates &amp; Request Quote</span>
+    </div>
+
+    <!-- Trip 4 -->
+    <div class="trip-card" data-dates="August 9 – 14, 2025" onclick="selectTrip(this)">
+      <div class="trip-head"><p class="trip-label">End of Summer</p><p class="trip-dates">August 9 – 14, 2025</p></div>
+      <div class="trip-tiers-list">
+        <div class="t-row entry"><span class="t-name">Sandals Luxury</span><div class="t-price-wrap"><strong class="t-price">$411</strong><span class="t-unit">pp / pn</span></div></div>
+        <div class="t-row smart"><div><span class="t-name">Club Sandals<span class="t-badge-inline">Megan's Pick</span></span><div class="t-sub">Concierge lounge · drinks in room</div></div><div class="t-price-wrap"><strong class="t-price">$502</strong><span class="t-unit">pp / pn</span></div></div>
+        <div class="t-row luxury"><span class="t-name">Butler Villa</span><div class="t-price-wrap"><strong class="t-price">$976</strong><span class="t-unit">pp / pn</span></div></div>
+      </div>
+      <span class="select-cta">✦ Select These Dates &amp; Request Quote</span>
+    </div>
+
+    <!-- Last Minute -->
+    <div class="trip-card last-min" data-dates="Last Minute: March 1 – 5, 2026" onclick="selectTrip(this)">
+      <div class="trip-head"><p class="trip-label">🔥 Last Minute Deal</p><p class="trip-dates">March 1 – 5, 2026</p><span class="lm-promo">1st Night FREE Applied</span></div>
+      <div class="lm-room-block">
+        <div class="lm-room-name">Italian Oceanview Concierge<br>Family Suite with Kids Room</div>
+        <div class="lm-room-sub">Italian Village · 2 Adults + 2 Children · 4 Nights · All-Inclusive</div>
+        <div class="lm-price">$7,896.80</div>
+        <div class="lm-price-note">Total package price · 1st night free promotion applied</div>
+      </div>
+      <span class="select-cta">✦ I Want This Deal — Request Quote</span>
+    </div>
+
+  </div>
+
+  <!-- Butler Callout -->
+  <div class="butler-callout">
+    <p class="eyebrow">Butler Villa — What "Butler Service" Actually Means</p>
+    <h3>Your own dedicated butler, available 24 hours a day — so you never have to think about the details.</h3>
+    <div class="butler-perks">
+      <div class="butler-perk"><span>✦</span>Private airport transportation to &amp; from the resort</div>
+      <div class="butler-perk"><span>✦</span>A personal phone to reach your butler anytime, day or night</div>
+      <div class="butler-perk"><span>✦</span>Reserved beach &amp; pool chairs — always ready when you arrive</div>
+      <div class="butler-perk"><span>✦</span>Custom alcohol &amp; drink preference list pre-stocked in your suite</div>
+      <div class="butler-perk"><span>✦</span>Restaurant reservations handled for you — including the hard-to-get spots</div>
+      <div class="butler-perk"><span>✦</span>Premium beachfront suite locations with top-tier finishes</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- PROMOS -->
+<section class="promos reveal">
+  <p class="sec-eyebrow">Current Promotions</p>
+  <h2 class="sec-title">More Ways to Save</h2>
+  <div class="promos-grid">
+    <div class="promo-card">
+      <div class="promo-icon">❄️</div>
+      <h3>Winter Blues Sale</h3>
+      <p>Save up to $650 on your trip, plus a $350 air credit and a complimentary catamaran cruise. Sale is on now — ask Megan for details.</p>
+      <span class="promo-pill">Sale Now On</span>
+    </div>
+    <div class="promo-card">
+      <div class="promo-icon">🏘️</div>
+      <h3>Book 10+ Rooms, Save Big</h3>
+      <p>Traveling with a large group or extended family? Book 10+ rooms at Treasure Beach Village and save 15%, or 13% off at select resorts &amp; dates.</p>
+      <span class="promo-pill">Groups of 10+ Rooms</span>
+    </div>
+    <div class="promo-card">
+      <div class="promo-icon">🎁</div>
+      <h3>Free Room Credit Deals</h3>
+      <p>Book 5 rooms and get the 6th room as a free credit. Book 9 rooms and get the 10th free. Perfect for multi-generational family reunions and large gatherings.</p>
+      <span class="promo-pill">Select Resorts &amp; Dates</span>
+    </div>
+    <div class="promo-card">
+      <div class="promo-icon">⚡</div>
+      <h3>7-7-7 Weekly Deals</h3>
+      <p>Flash deals that drop weekly and sell out fast — specific room categories at deeply discounted rates. Sign up below to be notified the moment a deal goes live.</p>
+      <span class="promo-pill">Drops Weekly · Sells Out Fast</span>
+    </div>
+  </div>
+</section>
+
+<!-- 7-7-7 -->
+<section class="deals reveal">
+  <p class="sec-eyebrow">Flash Deal Alert</p>
+  <h2 class="sec-title">The 7-7-7 Deal</h2>
+  <p class="deals-explainer">Every week, Beaches releases a limited number of rooms at a <strong>significant additional discount</strong> — specific room categories, specific dates, available for a very short window. <span class="hot">These sell out fast.</span> Check below for current live deals, or tick the box in the quote form to be notified the moment a new one drops.</p>
+  <div class="deals-box">
+    <div class="deals-box-head"><span class="dot"></span><span>Current 7-7-7 Deals — Updated Weekly</span></div>
+    <div class="deals-slots">
+      <div class="deal-slot"><div class="slot-num">Deal 01</div><div class="slot-body">Check back soon</div></div>
+      <div class="deal-slot"><div class="slot-num">Deal 02</div><div class="slot-body">Check back soon</div></div>
+      <div class="deal-slot"><div class="slot-num">Deal 03</div><div class="slot-body">Check back soon</div></div>
+    </div>
+    <div class="deals-footer">New deals post every week — follow If You Can Dream It Travel on social or request quote below to get deal alerts straight to your inbox</div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="quote">
+  <p class="sec-eyebrow">Let's Make It Happen</p>
+  <h2 class="sec-title">Request Your Custom Quote</h2>
+  <p class="form-sub">No obligation, no pressure. Tell me about your family and I'll put together a personalized quote — usually within 24 hours.</p>
+
+  <div id="selected-banner">
+    <div class="ban-eyebrow">✦ You Selected</div>
+    <div class="ban-dates" id="banner-dates">—</div>
+    <div class="ban-hint">Fill in your details below and Megan will get back to you within 24 hours</div>
+  </div>
+
+  <div class="form-wrap">
+    <form id="quoteForm">
+
+      <div class="frow">
+        <div class="fg"><label>First Name *</label><input type="text" name="first_name" placeholder="Jane" required></div>
+        <div class="fg"><label>Last Name *</label><input type="text" name="last_name" placeholder="Smith" required></div>
+      </div>
+
+      <div class="fg"><label>Email Address *</label><input type="email" name="email" placeholder="jane@email.com" required></div>
+      <div class="fg"><label>Phone Number</label><input type="tel" name="phone" placeholder="(985) 000-0000"></div>
+
+      <div class="fg">
+        <label>Preferred Travel Dates *</label>
+        <select name="travel_dates" required>
+          <option value="" disabled selected>Select your dates</option>
+          <option>April 26 – May 1, 2025</option>
+          <option>May 3 – May 8, 2025</option>
+          <option>June 14 – 19, 2025</option>
+          <option>August 9 – 14, 2025</option>
+          <option>Last Minute: March 1 – 5, 2026</option>
+          <option>Flexible — show me all options</option>
+        </select>
+      </div>
+
+      <div id="flights-wrap">
+        <span class="flabel">Would you like flights included in your quote?</span>
+        <div class="yn-opts">
+          <label class="yn-btn" onclick="selFlight(this, 'yes')"><input type="radio" name="flights" value="yes"> ✈️ &nbsp;Yes — include flights</label>
+          <label class="yn-btn" onclick="selFlight(this, 'no')"><input type="radio" name="flights" value="no"> 🏨 &nbsp;No — resort only</label>
+        </div>
+        <div id="airport-wrap">
+          <div class="fg" style="margin-top:.8rem">
+            <label>Nearest Airport / Departure City</label>
+            <input type="text" name="departure_airport" placeholder="e.g. New Orleans (MSY), Dallas (DFW)...">
+          </div>
+        </div>
+      </div>
+
+      <div class="frow">
+        <div class="fg">
+          <label>Number of Adults *</label>
+          <select name="adults" required>
+            <option value="" disabled selected>Select</option>
+            <option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6+</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Number of Children</label>
+          <select name="num_children" id="num_children_select" onchange="updateAges()">
+            <option value="0" selected>0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5+">5+</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="ages-wrap">
+        <span class="flabel">Children's Ages — Please enter each child's age</span>
+        <div class="ages-grid" id="ages-grid"></div>
+      </div>
+
+      <div class="fg">
+        <label>Room Preference</label>
+        <select name="room_preference">
+          <option value="" disabled selected>Select a tier</option>
+          <option>Sandals Luxury — Great entry point</option>
+          <option>Club Sandals / Concierge — Megan's Pick (best value)</option>
+          <option>Butler Villa — Ultimate luxury experience</option>
+          <option>Not sure — show me all options</option>
+        </select>
+      </div>
+
+      <div class="fg">
+        <label>Village Preference</label>
+        <select name="village">
+          <option value="" disabled selected>Select a village (optional)</option>
+          <option>French Village — Closest to waterpark, great for families</option>
+          <option>Caribbean Village — Older charm, central to everything</option>
+          <option>Key West Village — Updated rooms, quiet &amp; convenient</option>
+          <option>Italian Village — Party pool, most lively (can be loud)</option>
+          <option>Seaside Village — Beautiful suites, closest to the ocean</option>
+          <option>Treasure Beach — Newest building, most updated</option>
+          <option>No preference / Surprise me</option>
+        </select>
+      </div>
+
+      <div class="radio-group">
+        <span class="flabel">Where Are You in the Planning Process? *</span>
+        <div class="radio-opts">
+          <label class="rbtn" onclick="selRadio(this)"><input type="radio" name="readiness" value="just_looking"><span class="ico">👀</span><span>Just looking — exploring options and dreaming</span></label>
+          <label class="rbtn" onclick="selRadio(this)"><input type="radio" name="readiness" value="pretty_ready"><span class="ico">🧳</span><span>Pretty ready — if the quote looks good, I'm in</span></label>
+          <label class="rbtn" onclick="selRadio(this)"><input type="radio" name="readiness" value="lock_it_in"><span class="ico">🔒</span><div><span>Ready to lock it in — secure my rate with a $400 deposit</span><div style="font-size:.72rem;color:rgba(255,255,255,.4);margin-top:2px">Fully refundable if you cancel 45+ days before check-in</div></div></label>
+        </div>
+      </div>
+
+      <div class="radio-group">
+        <span class="flabel">How Would You Prefer to Receive Your Quote? *</span>
+        <div class="contact-opts">
+          <label class="cbtn" onclick="selContact(this)"><input type="radio" name="contact_pref" value="email"><span>📧</span> Email</label>
+          <label class="cbtn" onclick="selContact(this)"><input type="radio" name="contact_pref" value="text"><span>💬</span> Text</label>
+          <label class="cbtn" onclick="selContact(this)"><input type="radio" name="contact_pref" value="phone"><span>📞</span> Phone Call</label>
+        </div>
+      </div>
+
+      <label class="cb-row">
+        <input type="checkbox" name="deal_alerts" value="yes">
+        <div class="cbt"><strong>🔥 Yes, notify me about 7-7-7 deals!</strong> Send me an alert when a weekly flash deal drops for Beaches Turks &amp; Caicos — I want first access before they sell out.</div>
+      </label>
+
+      <div class="fg"><label>Anything Else Megan Should Know?</label><textarea name="notes" rows="3" placeholder="Special occasions, large group details, accessibility needs, questions..."></textarea></div>
+
+
+      <!-- CUSTOM DATES DIVIDER -->
+      <div style="margin:2rem 0;display:flex;align-items:center;gap:1rem">
+        <div style="flex:1;height:1px;background:rgba(255,255,255,.1)"></div>
+        <span style="font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);white-space:nowrap">or</span>
+        <div style="flex:1;height:1px;background:rgba(255,255,255,.1)"></div>
+      </div>
+
+      <!-- CUSTOM DATES -->
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:1.6rem;margin-bottom:1.4rem">
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--white);margin-bottom:.3rem">Dates don't work?</p>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:1.2rem;font-weight:300">No problem — tell me when works for you and I'll find availability and pricing for your ideal dates.</p>
+        <div class="frow" style="margin-bottom:.8rem">
+          <div class="fg" style="margin-bottom:0">
+            <label>Preferred Check-In Date</label>
+            <input type="date" name="custom_checkin" style="color-scheme:dark">
+          </div>
+          <div class="fg" style="margin-bottom:0">
+            <label>Preferred Check-Out Date</label>
+            <input type="date" name="custom_checkout" style="color-scheme:dark">
+          </div>
+        </div>
+        <div class="fg" style="margin-bottom:0">
+          <label>Flexible? Tell me your ideal window</label>
+          <input type="text" name="custom_dates_note" placeholder="e.g. Any week in July, or school spring break...">
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Send My Quote Request →</button>
+      <p class="form-privacy">Your information is kept private and never shared. You'll hear back within 24 hours.</p>
+    </form>
+
+    <div id="success-msg">
+      <div class="chk">✦</div>
+      <h3>You're one step closer to Grace Bay!</h3>
+      <p>Megan will review your details and be in touch within 24 hours with your personalized Beaches quote.<br>Start dreaming — it's happening. 🌊</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="brand">If You Can Dream It Travel</div>
+  <div>Megan Tykol · Independent Travel Advisor</div>
+  <div><a href="mailto:megantykol@ifyoucandreamittravel.com">megantykol@ifyoucandreamittravel.com</a></div>
+  <div style="margin-top:1.4rem;margin-bottom:.6rem;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)">Follow Megan Tykol with If You Can Dream It Travel</div>
+  <div style="display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap;margin-bottom:1.2rem">
+    <a href="https://www.facebook.com/Megantykolwithifyoucandreamittravel" target="_blank" style="display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:50px;padding:7px 16px;color:rgba(255,255,255,.7);font-size:.78rem;text-decoration:none;transition:all .25s" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      Facebook
+    </a>
+    <a href="https://www.instagram.com/megantykol_ifyoucandreamit" target="_blank" style="display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:50px;padding:7px 16px;color:rgba(255,255,255,.7);font-size:.78rem;text-decoration:none;transition:all .25s" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      @megantykol_ifyoucandreamit
+    </a>
+    <a href="https://www.tiktok.com/@megantykol_ifyoucandream" target="_blank" style="display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:50px;padding:7px 16px;color:rgba(255,255,255,.7);font-size:.78rem;text-decoration:none;transition:all .25s" onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
+      @megantykol_ifyoucandream
+    </a>
+  </div>
+  <div style="font-size:.65rem;opacity:.5">Pricing is live and subject to change. All rates shown are approximate based on a family of 4. Final quotes provided upon request. Promotions subject to availability and terms.</div>
+</footer>
+
+<script>
+// SCROLL REVEAL
+const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') }), {threshold:.1});
+document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+
+// TRIP CARD SELECTION
+function selectTrip(card) {
+  // Highlight selected card
+  document.querySelectorAll('.trip-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+
+  // Get dates and update hidden select + banner
+  const dates = card.getAttribute('data-dates');
+  const select = document.querySelector('select[name="travel_dates"]');
+  for (let i = 0; i < select.options.length; i++) {
+    if (select.options[i].value === dates || select.options[i].text === dates) {
+      select.selectedIndex = i;
+      break;
+    }
+  }
+
+  // Show and update confirmation banner
+  const banner = document.getElementById('selected-banner');
+  document.getElementById('banner-dates').textContent = dates;
+  banner.style.display = 'block';
+
+  // Smooth scroll to form after short delay
+  setTimeout(() => {
+    document.getElementById('quote').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 300);
+}
+
+// FLIGHT SELECTION
+function selFlight(el, val) {
+  document.querySelectorAll('.yn-btn').forEach(b => b.classList.remove('sel'));
+  el.classList.add('sel');
+  el.querySelector('input[type=radio]').checked = true;
+  const airportWrap = document.getElementById('airport-wrap');
+  airportWrap.style.display = val === 'yes' ? 'block' : 'none';
+}
+
+// RADIO BUTTONS
+function selRadio(el) {
+  document.querySelectorAll('.rbtn').forEach(b => b.classList.remove('sel'));
+  el.classList.add('sel');
+  el.querySelector('input[type=radio]').checked = true;
+}
+function selContact(el) {
+  document.querySelectorAll('.cbtn').forEach(b => b.classList.remove('sel'));
+  el.classList.add('sel');
+  el.querySelector('input[type=radio]').checked = true;
+}
+
+// CHILDREN AGES
+function updateAges() {
+  const val = document.getElementById('num_children_select').value;
+  const wrap = document.getElementById('ages-wrap');
+  const grid = document.getElementById('ages-grid');
+  const num = val === '5+' ? 5 : parseInt(val);
+  if(num === 0){ wrap.style.display='none'; grid.innerHTML=''; return; }
+  wrap.style.display='block';
+  grid.innerHTML = '';
+  for(let i=1;i<=num;i++){
+    const d = document.createElement('div');
+    d.className = 'age-item';
+    d.innerHTML = `<label>Child ${i} Age</label><input type="number" name="child_${i}_age" placeholder="e.g. 7" min="0" max="17">`;
+    grid.appendChild(d);
+  }
+}
+
+// FORM SUBMIT
+document.getElementById('quoteForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const data = new FormData(this);
+
+  // ── Replace YOUR_FORM_ID with your Formspree ID from formspree.io ──
+  const FORMSPREE_ID = 'xpqjjezy';
+
+  if(FORMSPREE_ID !== 'YOUR_FORM_ID'){
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method:'POST', headers:{'Accept':'application/json'}, body:data
+      });
+      if(res.ok) showSuccess();
+      else alert('Something went wrong. Please email Megan directly at megantykol@ifyoucandreamittravel.com');
+    } catch {
+      alert('Network error. Please email Megan at megantykol@ifyoucandreamittravel.com');
+    }
+  } else {
+    showSuccess(); // demo mode
+  }
+});
+
+function showSuccess(){
+  document.getElementById('quoteForm').style.display='none';
+  document.getElementById('success-msg').style.display='block';
+}
+</script>
+</body>
+</html>
